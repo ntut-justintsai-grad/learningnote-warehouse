@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&family=Inter:wght@400;600;700&display=swap');
+:root{color:#172735;background:#f7f4ec;font-family:Inter,system-ui,sans-serif;line-height:1.65;--accent:#a13818;--line:#d7cdbd}
+*{box-sizing:border-box}body,h1,h2,h3,p{margin:0}a{color:var(--accent)}a:focus-visible{outline:3px solid #a13818;outline-offset:4px}.wrap{width:min(1100px,calc(100% - 40px));margin:auto}
+header{border-bottom:1px solid var(--line)}nav{padding:19px 0}nav a{text-decoration:none;font-weight:700;color:inherit}
+h1,h2,h3{font-family:'Noto Serif TC',Georgia,serif;line-height:1.3}h1{font-size:clamp(2.3rem,5vw,4rem)}h2{font-size:1.6rem}h3{font-size:1.35rem}
+.hero{margin:38px 0;background:#172735;color:#fff8e9;border-radius:20px;padding:clamp(24px,5vw,60px)}.hero p{margin:16px 0 24px;color:#e4d9c8}.button{display:inline-block;background:#f7cb9a;border-radius:6px;color:#472410;text-decoration:none;padding:9px 16px;font-weight:700}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:16px}.card{display:block;background:#fffdf7;border:1px solid var(--line);border-radius:14px;padding:22px;color:inherit;text-decoration:none}.card:hover{border-color:var(--accent)}.card span,.subtitle{color:var(--accent);font-size:.88rem;font-weight:700}.card h3,.card p{margin:8px 0}.card strong{color:var(--accent)}footer{padding:30px 0;color:#58616a;font-size:.85rem}
+article{max-width:740px;padding-top:32px}article h2{margin:24px 0 8px}article .subtitle{margin-top:22px}.intro{font-size:1.1rem;margin-top:10px}li+li{margin-top:6px}table{width:100%;border-collapse:collapse;background:#fffdf7;text-align:left}caption{text-align:left;padding:0 0 4px}th,td{border-bottom:1px solid var(--line);padding:8px 12px}.result{background:#f3e4d3;border-left:4px solid var(--accent);padding:14px;margin-top:14px}
+@media(max-width:640px){.cards{grid-template-columns:1fr}.hero{gap:10px;margin:20px 0}.wrap{width:calc(100% - 28px)}}
+
+
+.category{margin-bottom:28px}article{padding-bottom:40px}article section p+p{margin-top:12px}.table-scroll{overflow:auto;margin:12px 0}pre{background:#172735;color:#fff8e9;padding:16px;border-radius:8px;overflow:auto;font-size:.95rem}

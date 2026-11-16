@@ -1,0 +1,78 @@
+{
+  "title": "SQL 分組與彙總",
+  "subtitle": "SQL GROUP BY",
+  "category": "資料庫",
+  "summary": "把多筆明細依欄位分組，算出每組的筆數與合計。",
+  "sections": [
+    {
+      "heading": "核心觀念",
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "GROUP BY 將相同分類的資料列放進一組，再由 COUNT、SUM 或 AVG 計算組內的彙總值。查詢會為每個分組留下對應的彙總結果。"
+        }
+      ]
+    },
+    {
+      "heading": "操作範例",
+      "blocks": [
+        {
+          "kind": "table",
+          "caption": "Sales 範例資料",
+          "headers": [
+            "category",
+            "amount"
+          ],
+          "rows": [
+            [
+              "文具",
+              120
+            ],
+            [
+              "食品",
+              80
+            ],
+            [
+              "文具",
+              50
+            ]
+          ]
+        },
+        {
+          "kind": "code",
+          "text": "SELECT category, COUNT(*) AS row_count, SUM(amount) AS total_amount\nFROM Sales\nGROUP BY category;"
+        },
+        {
+          "kind": "table",
+          "caption": "查詢結果（列順序可變）",
+          "headers": [
+            "category",
+            "row_count",
+            "total_amount"
+          ],
+          "rows": [
+            [
+              "文具",
+              2,
+              170
+            ],
+            [
+              "食品",
+              1,
+              80
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "使用時機",
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "適用於依商品類別彙總銷售額、依班級計算人數等情境。要在分組前篩選明細用 WHERE，要篩選分組結果用 HAVING。"
+        }
+      ]
+    }
+  ]
+}
