@@ -1,0 +1,125 @@
+{
+  "title": "SQL 分組與彙總",
+  "subtitle": "SQL GROUP BY",
+  "category": "資料庫",
+  "summary": "把多筆明細依欄位分組，算出每組的筆數與合計。",
+  "sections": [
+    {
+      "heading": "核心觀念",
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "GROUP BY 將相同分類的資料列放進一組，再由 COUNT、SUM 或 AVG 計算組內的彙總值。查詢會為每個分組留下對應的彙總結果。"
+        }
+      ]
+    },
+    {
+      "heading": "操作範例",
+      "blocks": [
+        {
+          "kind": "table",
+          "caption": "Sales 範例資料",
+          "headers": [
+            "category",
+            "amount"
+          ],
+          "rows": [
+            [
+              "文具",
+              120
+            ],
+            [
+              "食品",
+              80
+            ],
+            [
+              "文具",
+              50
+            ]
+          ]
+        },
+        {
+          "kind": "stepper",
+          "steps": [
+            {
+              "title": "讀取三筆交易",
+              "text": "明細依序是文具 120、食品 80、文具 50。每一列代表一筆交易。"
+            },
+            {
+              "title": "把相同分類放在一起",
+              "text": "GROUP BY category 形成兩組：文具含 120、50，食品只有 80。"
+            },
+            {
+              "title": "在每一組內計算",
+              "text": "文具的 COUNT(*) 是 2、SUM(amount) 是 170；食品的筆數是 1、合計是 80。"
+            }
+          ]
+        },
+        {
+          "kind": "code",
+          "text": "SELECT category, COUNT(*) AS row_count, SUM(amount) AS total_amount\nFROM Sales\nGROUP BY category;"
+        },
+        {
+          "kind": "table",
+          "caption": "查詢結果（列順序可變）",
+          "headers": [
+            "category",
+            "row_count",
+            "total_amount"
+          ],
+          "rows": [
+            [
+              "文具",
+              2,
+              170
+            ],
+            [
+              "食品",
+              1,
+              80
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "使用時機",
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "適用於依商品類別彙總銷售額、依班級計算人數等情境。要在分組前篩選明細用 WHERE，要篩選分組結果用 HAVING。"
+        }
+      ]
+    },
+    {
+      "heading": "理解小測驗",
+      "blocks": [
+        {
+          "kind": "quiz",
+          "questions": [
+            {
+              "prompt": "文具組的 COUNT(*) 與 SUM(amount) 是多少？",
+              "options": [
+                "2 和 120",
+                "1 和 170",
+                "2 和 170"
+              ],
+              "answer": 2,
+              "explanation": "文具共有 120 和 50 兩筆，因此筆數為 2，合計為 170。"
+            },
+            {
+              "prompt": "想找合計超過 100 的分類，應用哪個子句？",
+              "options": [
+                "WHERE",
+                "HAVING",
+                "ORDER BY"
+              ],
+              "answer": 1,
+              "explanation": "HAVING 可以用 SUM(amount) 篩選分組之後的結果。"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
