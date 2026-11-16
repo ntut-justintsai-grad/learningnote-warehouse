@@ -10,6 +10,3 @@
 
 提示詞範例：「請依照 AGENTS.md 新增一篇統計學筆記，說明樣本平均數，加入一個可手算的例題，再重建網站並檢查連結。」
 
-## GitHub Pages
-將此資料夾內的完整專案推送到公開 GitHub 儲存庫，在 Settings → Pages 選擇 Deploy from a branch，使用 main 分支的 /docs 並儲存。部署完成後可從同一頁開啟公開網址。
-
